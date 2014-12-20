@@ -17,8 +17,10 @@
 package vaadinTicket;
 
 import colorpicker.ColorPicker;
+import colorpicker.SuggestionBox;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.TextArea;
+import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 
@@ -33,13 +35,21 @@ public class TableBugApplication extends com.vaadin.Application {
         Table table = new Table();
         table.addContainerProperty("prop1", String.class, "default");
         table.addContainerProperty("prop2", String.class, "default2");
-        main.addComponent(table);
         TextArea textArea = new TextArea();
         textArea.setDescription("Description");
         textArea.setRows(10);
         textArea.setColumns(10);
-        main.addComponent(textArea);
-        main.addComponent(new ColorPicker());
+        VerticalLayout layout = new VerticalLayout();
+        SuggestionBox suggestionBox = new SuggestionBox();
+
+        suggestionBox.setHeight("200px");
+        layout.addComponent(suggestionBox);
+        layout.addComponent(textArea);
+
+        main.setContent(layout);
+
+        suggestionBox.setDescription("suggestion box!!!");
+        textArea.setDescription("text area!!!!");
 
 //        for(int i=0; i<1000; ++i){
 //            table.removeAllItems();
