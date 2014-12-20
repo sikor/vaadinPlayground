@@ -10,13 +10,19 @@ import com.vaadin.terminal.gwt.client.UIDL;
 
 public class VColorPicker extends GwtColorPicker implements Paintable {
 
-    /** Set the CSS class name to allow styling. */
+    /**
+     * Set the CSS class name to allow styling.
+     */
     public static final String CLASSNAME = "example-colorpicker";
 
-    /** Component identifier in UIDL communications. */
+    /**
+     * Component identifier in UIDL communications.
+     */
     String uidlId;
 
-    /** Reference to the server connection object. */
+    /**
+     * Reference to the server connection object.
+     */
     ApplicationConnection client;
 
     /**
@@ -35,7 +41,7 @@ public class VColorPicker extends GwtColorPicker implements Paintable {
     /**
      * This method must be implemented to update the client-side component from
      * UIDL data received from server.
-     * 
+     * <p/>
      * This method is called when the page is loaded for the first time, and
      * every time UI changes in the component are received from the server.
      */
@@ -57,7 +63,9 @@ public class VColorPicker extends GwtColorPicker implements Paintable {
         setColor(uidl.getStringVariable("colorname"));
     }
 
-    /** Override the method to communicate the new value to server. */
+    /**
+     * Override the method to communicate the new value to server.
+     */
     @Override
     public void setColor(String newcolor) {
         // Ignore if no change

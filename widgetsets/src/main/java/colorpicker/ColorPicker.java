@@ -4,13 +4,13 @@
 
 package colorpicker;
 
-import java.util.Map;
-
 import colorpicker.gwt.client.ui.VColorPicker;
 import com.vaadin.terminal.PaintException;
 import com.vaadin.terminal.PaintTarget;
 import com.vaadin.ui.AbstractField;
 import com.vaadin.ui.ClientWidget;
+
+import java.util.Map;
 
 @SuppressWarnings("serial")
 @ClientWidget(VColorPicker.class)
@@ -21,18 +21,31 @@ public class ColorPicker extends AbstractField {
         setValue(new String("white"));
     }
 
-    /** The property value of the field is a String. */
+    /**
+     * The property value of the field is a String.
+     */
     @Override
     public Class<?> getType() {
         return String.class;
     }
 
-    /** Tag is the UIDL element name for client-server communications. */
+    /**
+     * Tag is the UIDL element name for client-server communications.
+     */
     public String getTag() {
         return "colorpicker";
     }
 
-    /** Set the currently selected color. */
+    /**
+     * Retrieve the currently selected color.
+     */
+    public String getColor() {
+        return (String) getValue();
+    }
+
+    /**
+     * Set the currently selected color.
+     */
     public void setColor(String newcolor) {
         // Sets the color name as the property of the component.
         // Setting the property will automatically cause repainting of
@@ -40,12 +53,9 @@ public class ColorPicker extends AbstractField {
         setValue(newcolor);
     }
 
-    /** Retrieve the currently selected color. */
-    public String getColor() {
-        return (String) getValue();
-    }
-
-    /** Paint (serialize) the component for the client. */
+    /**
+     * Paint (serialize) the component for the client.
+     */
     @Override
     public void paintContent(PaintTarget target) throws PaintException {
         // Superclass writes any common attributes in the paint target.
@@ -56,7 +66,9 @@ public class ColorPicker extends AbstractField {
         target.addVariable(this, "colorname", getColor());
     }
 
-    /** Deserialize changes received from client. */
+    /**
+     * Deserialize changes received from client.
+     */
     @SuppressWarnings("unchecked")
     @Override
     public void changeVariables(Object source, Map variables) {

@@ -16,10 +16,10 @@
 
 package vaadinTicket;
 
+import colorpicker.ColorPicker;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.Window;
-import colorpicker.ColorPicker;
 
 
 @SuppressWarnings("serial")

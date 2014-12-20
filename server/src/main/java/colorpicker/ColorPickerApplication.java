@@ -7,9 +7,9 @@ package colorpicker;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Window;
-import com.vaadin.ui.Button.ClickEvent;
 
 /**
  * Demonstration application that shows how to use a simple custom client-side

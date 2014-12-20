@@ -6,13 +6,7 @@ package colorpicker.gwt.client.ui;
 
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.ClickListener;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.Grid;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.*;
 
 /**
  * A regular GWT component without integration with Vaadin.
@@ -20,15 +14,17 @@ import com.google.gwt.user.client.ui.Widget;
 @SuppressWarnings("deprecation")
 public class GwtColorPicker extends Composite implements ClickListener {
 
-    /** Currently selected color name to give client-side feedback to the user. */
+    /**
+     * Currently selected color name to give client-side feedback to the user.
+     */
     protected Label currentcolor = new Label();
 
     public GwtColorPicker() {
         // Create a 4x4 grid of buttons with names for 16 colors
         final Grid grid = new Grid(4, 4);
-        final String[] colors = new String[] { "aqua", "black", "blue",
+        final String[] colors = new String[]{"aqua", "black", "blue",
                 "fuchsia", "gray", "green", "lime", "maroon", "navy", "olive",
-                "purple", "red", "silver", "teal", "white", "yellow" };
+                "purple", "red", "silver", "teal", "white", "yellow"};
         int colornum = 0;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++, colornum++) {
@@ -77,13 +73,17 @@ public class GwtColorPicker extends Composite implements ClickListener {
         initWidget(panel);
     }
 
-    /** Handles click on a color button. */
+    /**
+     * Handles click on a color button.
+     */
     public void onClick(Widget sender) {
         // Use the button label as the color name to set
         setColor(((Button) sender).getText());
     }
 
-    /** Sets the currently selected color. */
+    /**
+     * Sets the currently selected color.
+     */
     public void setColor(String newcolor) {
         // Give client-side feedback by changing the color name in the label
         currentcolor.setText(newcolor);
